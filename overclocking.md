@@ -34,3 +34,7 @@ To see the clock speeds or measure cpu temperatures
 watch -n1 vcgencmd measure_clock arm
 watch -n1 vcgencmd measure_temp
 ```
+
+## For the Pi 3b+
+
+The RPI 3B+ is already set to run at the stable overclock of 1.4GHz and idle at 600MHz. With this in mind, it is better to just increase the idle if really desired. A good cooling system is also a necessity. If the cooling is good enough, the board will operate at 1.4GHz anyways. 
