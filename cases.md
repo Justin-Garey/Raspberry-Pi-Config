@@ -44,7 +44,15 @@ argonone-ir
 
 ### Setup
 Display
-- Connect the pi to the display and restart it to configure the resolution.
+- Connect the pi to the display then power the pi. The resolution should automatically be configured.
+- The screen may be rotated incorrectly for your use. To configure the orientation:
+  - Click the Raspberry in the top left
+  - Select Preferences
+  - Enter the Screen Configuration
+  - Right click the hmdi image
+  - Select Orientation
+  - Select your desired orientation
+    - It will revert back if you don't approve it within 10 seconds
 
 Touch Capabilities
 ```
@@ -60,3 +68,50 @@ sudo ./MPI4008-show
 The touch screen has a power button. 
 - Short press to increase brightness by 10%. After reaching 100%, it will cycle to 1%.
 - Long press for 3 seconds to set the backlight to off, then short press to restore backlight brigtness
+
+Run Linux screen savers
+- Need xterm
+```
+sudo apt update
+sudo apt install -y xterm
+```
+- Install CMatrix
+```
+sudo apt install -y cmatrix
+```
+- Run CMatrix
+```
+xterm -fa monac -fs 20 -fullscreen
+cmatrix
+```
+- Install Asciiquarium
+```
+sudo apt install -y libcurses-perl
+cd /tmp
+wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.6.tar.gz
+tar -zxvf Term-Animation-2.6.tar.gz
+cd Term-Animation-2.6
+perl Makefile.PL && make &&  make test
+sudo make install
+cd /tmp
+wget --no-check-certificate http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz
+tar -zxvf asciiquarium.tar.gz
+cd asciiquarium_1.1
+sudo cp asciiquarium /usr/local/bin/
+sudo chmod 0755 /usr/local/bin/asciiquarium
+```
+- Run Asciiquarium
+```
+xterm -fullscreen
+asciiquarium
+```
+- Install pipes.sh
+```
+git clone https://github.com/pipeseroni/pipes.sh.git
+cd pipes.sh
+sudo make install
+```
+- Run pipes.sh
+```
+pipes.sh
+```
